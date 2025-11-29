@@ -1,0 +1,77 @@
+.site-footer {
+  margin-top: 60px;
+  background: #0d0d0d;
+  color: #ffffff;
+  padding: 40px 20px;
+}
+
+.footer-inner {
+  max-width: 1100px;
+  margin: auto;
+  text-align: center;
+  line-height: 1.8;
+}
+
+/* Brand */
+.site-footer .brand {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  background: linear-gradient(45deg, #ff007b, #9b4dff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Tagline */
+.site-footer .tag {
+  font-size: 1rem;
+  margin-bottom: 15px;
+  color: #ddd;
+}
+
+/* Social Links */
+.socials {
+  margin: 15px 0;
+  font-size: 1rem;
+  color: #ccc;
+}
+
+.socials span {
+  cursor: pointer;
+  margin: 0 10px;
+  transition: 0.3s ease;
+}
+
+.socials span:hover {
+  color: #ff007b;
+}
+
+/* Navigation Links */
+.links {
+  margin-top: 10px;
+  font-size: 0.95rem;
+  color: #bbb;
+}
+
+.links span {
+  margin: 0 10px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.links span:hover {
+  color: #ff8a00;
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+  .footer-inner {
+    line-height: 1.6;
+  }
+
+  .socials span,
+  .links span {
+    display: inline-block;
+    margin: 6px 6px;
+  }
+}
