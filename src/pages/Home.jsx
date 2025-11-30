@@ -2,7 +2,7 @@ import "./Home.css";
 import img from "../assets/img1.png"
 import book from "../assets/book.png"
 import chats from "../assets/chats.png"
-import courses from "../assets/courses.svg"
+import courses from "../assets/growth.png"
 
 export default function Home({ onNavigate }) {
     return (

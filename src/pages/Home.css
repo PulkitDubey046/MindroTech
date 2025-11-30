@@ -5,9 +5,13 @@
 }
 
 .hero-logo {
-  width: 160px;
-  margin-bottom: 10px;
+  width: 100%;
+  max-width: 900px;   /* optional: keeps image from getting TOO big */
+  height: auto;
+  display: block;
+  margin: 0 auto 20px auto; /* center + spacing */
 }
+
 
 .hero-title {
   font-size: 2.8rem;
