@@ -1,31 +1,33 @@
 import { useEffect } from "react";
-import "./App.css";
-
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Services from "./pages/Services";
 import Contact from "./pages/Contact";
 
 function App() {
-
-  // Smooth scrolling handler
+  // Smooth scrolling handler with header offset
   function navigate(sectionId) {
     const section = document.getElementById(sectionId);
     if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
+      const headerOffset = 72; // header height in px
+      const rect = section.getBoundingClientRect();
+      const offset = rect.top + window.pageYOffset - headerOffset;
+
+      window.scrollTo({
+        top: offset,
+        behavior: "smooth",
+      });
     }
   }
 
   return (
-    <div className="app-root">
+    <div className="min-h-screen bg-gray-50 text-gray-800 font-sans">
       <Header navigate={navigate} />
 
       {/* All sections on a single page */}
-      <div className="content">
-
+      <div className="pt-20 px-4 md:px-8 max-w-7xl mx-auto">
         <section id="home">
           <Home onNavigate={navigate} />
         </section>
@@ -41,7 +43,6 @@ function App() {
         <section id="contact">
           <Contact />
         </section>
-
       </div>
 
       <Footer />

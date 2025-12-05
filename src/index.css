@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html { 
+  scroll-behavior: smooth; 
+  scroll-padding-top: 72px; 
+}
+
+.page { 
+  padding-top: 72px; 
+}
+
+.gradient-text {
+  background: linear-gradient(45deg, #ff007b, #ff8a00);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
