@@ -40,15 +40,23 @@ export default function Contact() {
   return (
     <main className="max-w-3xl mx-auto px-5 py-10 md:px-8 md:py-12 lg:px-10 lg:py-16 text-center">
       <h2 className="text-4xl md:text-5xl lg:text-6xl font-black mb-8 md:mb-10 lg:mb-12 bg-gradient-to-r from-[#ff007b] via-[#ff8a00] to-[#ff007b] bg-clip-text text-transparent tracking-tight">
-        Let's Build Your Future Together
+        Contact Us 
       </h2>
+      <p className="text-lg md:text-xl text-gray-600 mb-6 md:mb-8 lg:mb-10 leading-relaxed max-w-2xl mx-auto">
+        We'd love to hear from you! Whether you have questions about our courses, 
+        need assistance, or want to discuss custom IT solutions, our team is here to help.
+      </p>
       
       <div className="space-y-3 mb-12 md:mb-16 lg:mb-20 max-w-2xl mx-auto">
-        <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
-          Have questions? Interested in a course? Or need a custom IT solution?
-          Connect with us today:
+        <p className="text-lg md:text-xl text-gray-600">
+          📧 Email:{" "}
+          <a
+            href="mailto:info@mindrotech.com"
+            className="font-semibold text-gray-800 hover:text-[#ff007b] underline underline-offset-4"
+          >
+            info@mindrotech.com
+          </a>
         </p>
-        <p className="text-lg md:text-xl text-gray-600">📧 Email: <span className="font-semibold text-gray-800">mindrotech7@gmail.com</span></p>
         <p className="text-lg md:text-xl text-gray-600">📍 Location: India (Offering Online & Hybrid Services)</p>
       </div>
 

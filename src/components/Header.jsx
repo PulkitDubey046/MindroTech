@@ -13,7 +13,7 @@ export default function Header({ navigate }) {
       setScrolled(window.scrollY > 50)
       
       // Auto-detect active section
-      const sections = ['home', 'about', 'services', 'contact']
+      const sections = ['home', 'about', 'services', 'courses', 'contact'];
       const scrollPosition = window.scrollY + 72 // header height
 
       sections.forEach(section => {
@@ -45,8 +45,9 @@ export default function Header({ navigate }) {
     { label: 'Home', section: 'home' },
     { label: 'About', section: 'about' },
     { label: 'Services', section: 'services' },
+    { label: 'Courses', section: 'courses' }, // new
     { label: 'Contact', section: 'contact' }
-  ]
+  ];
 
   return (
     <header 

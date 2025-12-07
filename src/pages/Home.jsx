@@ -1,60 +1,123 @@
-import img from "../assets/img1.png";
+import { useState, useEffect } from "react";
+
 import book from "../assets/book.png";
 import chats from "../assets/chats.png";
 import courses from "../assets/growth.png";
 
-import powerBi from "../assets/power-bi.jpeg";
-import digitalMarketing from "../assets/digital-marketing-courses.jpeg";
-import python from "../assets/python.jpeg";
-import servicesBanner from "../assets/services.jpeg";
-import seoWeb from "../assets/seoweb.jpeg";
-import reactCourse from "../assets/react.jpeg";
-import dataAnalyst from "../assets/data-analyst.jpeg";
+import hero1 from "../assets/hero1.jpg";
+import hero2 from "../assets/hero2.jpg";
+import hero3 from "../assets/hero3.jpg";
+import hero4 from "../assets/hero4.jpg";
+import hero5 from "../assets/hero5.jpg";
+import hero6 from "../assets/hero6.jpg";
+import hero7 from "../assets/hero7.jpg";
+import hero8 from "../assets/hero8.jpg";
+
+import logo from "../assets/logo.png";
+
+const heroImages = [hero1, hero2, hero3, hero4, hero5, hero6, hero7, hero8];
+
+const dynamicTexts = [
+  "Unlock Your Potential",
+  "Learn Premium Tech Skills",
+  "Become Job‑Ready",
+  "Master Data, Development & Marketing",
+];
 
 export default function Home({ onNavigate }) {
+  const [index, setIndex] = useState(0);
+
+  // auto‑slide every 5s
+  useEffect(() => {
+    const id = setInterval(
+      () => setIndex((prev) => (prev + 1) % heroImages.length),
+      5000
+    );
+    return () => clearInterval(id);
+  }, []);
+
   return (
-    <div className="py-20 px-5 md:px-8 lg:px-10 text-center">
+    <div className="w-full">
       {/* HERO SECTION */}
-      <section className="mb-20 md:mb-24 lg:mb-28">
-        <img
-          src={img}
-          alt="MindroTech Hero"
-          className="w-full max-w-6xl mx-auto mb-8 md:mb-10 lg:mb-12 block rounded-2xl shadow-2xl"
-        />
+      <section
+        className="relative w-full min-h-[70vh] md:min-h-[80vh] flex items-center justify-center text-center overflow-hidden"
+        style={{
+          backgroundImage: `url(${heroImages[index]})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          transition: "background-image 800ms ease-in-out",
+        }}
+      >
+        {/* soft overlay for readability */}
+        <div className="absolute inset-0 bg-black/40 md:bg-black/35 backdrop-blur-[2px]" />
 
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 md:mb-6 lg:mb-8 bg-gradient-to-r from-[#ff007b] via-[#ff8a00] to-[#ff007b] bg-clip-text text-transparent tracking-tight">
-          Unlock Your Potential
-        </h1>
+        {/* content */}
+        <div className="relative z-10 flex flex-col items-center px-5 md:px-8 lg:px-10">
+          {/* logo */}
+          <div className="flex items-center gap-3 mb-5 md:mb-6">
+            <img
+              src={logo}
+              alt="MindroTech logo"
+              className="w-12 h-12 md:w-14 md:h-14 object-contain"
+            />
+            <span className="text-white text-2xl md:text-3xl font-extrabold tracking-tight">
+              MindroTech
+            </span>
+          </div>
 
-        <p className="text-lg md:text-xl lg:text-2xl text-gray-600 mb-10 md:mb-12 lg:mb-16 leading-relaxed max-w-2xl mx-auto">
-          Upskill. Innovate. Connect.
-        </p>
+          {/* main text */}
+          <h1 className="text-white text-3xl md:text-5xl lg:text-6xl font-extrabold mb-4 md:mb-6 max-w-3xl leading-tight drop-shadow-lg transition-all duration-700">
+            {dynamicTexts[index % dynamicTexts.length]}
+          </h1>
 
-        <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center max-w-2xl mx-auto">
-          <button
-            onClick={() => onNavigate("services")}
-            className="px-8 py-3 md:px-10 md:py-4 lg:px-12 lg:py-4 rounded-xl font-semibold text-base md:text-lg lg:text-xl bg-gradient-to-r from-[#ff007b] to-[#ff8a00] text-white shadow-lg hover:shadow-xl hover:-translate-y-1 hover:opacity-90 transition-all duration-300 whitespace-nowrap flex-1 sm:flex-none"
-          >
-            Explore Services
-          </button>
-          <button
-            onClick={() => onNavigate("contact")}
-            className="px-8 py-3 md:px-10 md:py-4 lg:px-12 lg:py-4 rounded-xl font-semibold text-base md:text-lg lg:text-xl border-2 border-[#ff007b] text-[#ff007b] bg-white shadow-lg hover:shadow-xl hover:bg-[#ff007b] hover:text-white hover:-translate-y-1 transition-all duration-300 whitespace-nowrap flex-1 sm:flex-none"
-          >
-            Contact Us
-          </button>
+          <p className="text-gray-100 text-base md:text-lg lg:text-xl mb-8 md:mb-10 max-w-2xl">
+            Upskill. Innovate. Connect. Learn industry‑ready tech skills with
+            real‑world projects and placement support.
+          </p>
+
+          {/* buttons */}
+          <div className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6">
+            <button
+              onClick={() => onNavigate("services")}
+              className="px-8 py-3 md:px-10 md:py-4 rounded-xl font-semibold text-base md:text-lg bg-gradient-to-r from-[#ff007b] to-[#ff8a00] text-white shadow-xl hover:-translate-y-1 hover:opacity-90 transition-all duration-300"
+            >
+              Explore Services
+            </button>
+            <button
+              onClick={() => onNavigate("contact")}
+              className="px-8 py-3 md:px-10 md:py-4 rounded-xl font-semibold text-base md:text-lg border-2 border-white text-white bg-white/5 shadow-xl hover:bg-white hover:text-black hover:-translate-y-1 transition-all duration-300"
+            >
+              Contact Us
+            </button>
+          </div>
+
+          {/* dots */}
+          <div className="flex gap-2 mt-8">
+            {heroImages.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setIndex(i)}
+                className={`w-2.5 h-2.5 rounded-full border border-white/70 transition-all ${
+                  i === index
+                    ? "bg-white shadow-md scale-110"
+                    : "bg-white/30 hover:bg-white/70"
+                }`}
+                aria-label={`Hero slide ${i + 1}`}
+              />
+            ))}
+          </div>
         </div>
       </section>
 
       {/* SERVICES PREVIEW */}
-      <section className="mb-20 md:mb-24 lg:mb-28">
+      <section className="py-16 md:py-20 lg:py-24 px-5 md:px-8 lg:px-10 text-center">
         <h2 className="text-2xl md:text-3xl font-extrabold text-gray-900 mb-8">
           What You Get With Mindrotech
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-10 max-w-5xl mx-auto">
           <div className="group bg-white p-8 md:p-10 lg:p-12 rounded-2xl shadow-[0_3px_10px_rgba(0,0,0,0.06)] hover:shadow-[0_6px_15px_rgba(0,0,0,0.1)] hover:-translate-y-2 transition-all duration-300 border-2 border-transparent hover:border-[#ff007b] hover:border-opacity-50 relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-r from-[#ff007b]/5 to-[#ff8a00]/5 group-hover:opacity-100 transition-opacity" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#ff007b]/5 to-[#ff8a00]/5 opacity-0 group-hover:opacity-100 transition-opacity" />
             <img
               src={book}
               alt="Comprehensive Courses"
@@ -64,12 +127,13 @@ export default function Home({ onNavigate }) {
               Comprehensive Courses
             </h3>
             <p className="text-sm md:text-base text-gray-600 relative z-10">
-              Structured learning paths from fundamentals to advanced projects.
+              Structured learning paths from fundamentals to advanced,
+              project‑based training.
             </p>
           </div>
 
           <div className="group bg-white p-8 md:p-10 lg:p-12 rounded-2xl shadow-[0_3px_10px_rgba(0,0,0,0.06)] hover:shadow-[0_6px_15px_rgba(0,0,0,0.1)] hover:-translate-y-2 transition-all duration-300 border-2 border-transparent hover:border-[#ff007b] hover:border-opacity-50 relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-r from-[#ff007b]/5 to-[#ff8a00]/5 group-hover:opacity-100 transition-opacity" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#ff007b]/5 to-[#ff8a00]/5 opacity-0 group-hover:opacity-100 transition-opacity" />
             <img
               src={courses}
               alt="Career Development"
@@ -79,12 +143,13 @@ export default function Home({ onNavigate }) {
               Career Development
             </h3>
             <p className="text-sm md:text-base text-gray-600 relative z-10">
-              Mentorship, projects, and placement support to launch your career.
+              Resume building, mock interviews, and placement support to launch
+              your career.
             </p>
           </div>
 
           <div className="group bg-white p-8 md:p-10 lg:p-12 rounded-2xl shadow-[0_3px_10px_rgba(0,0,0,0.06)] hover:shadow-[0_6px_15px_rgba(0,0,0,0.1)] hover:-translate-y-2 transition-all duration-300 border-2 border-transparent hover:border-[#ff007b] hover:border-opacity-50 relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-r from-[#ff007b]/5 to-[#ff8a00]/5 group-hover:opacity-100 transition-opacity" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#ff007b]/5 to-[#ff8a00]/5 opacity-0 group-hover:opacity-100 transition-opacity" />
             <img
               src={chats}
               alt="Communication Classes"
@@ -94,57 +159,10 @@ export default function Home({ onNavigate }) {
               Communication Classes
             </h3>
             <p className="text-sm md:text-base text-gray-600 relative z-10">
-              Build soft skills and confidence for interviews and workplace success.
+              Improve your communication, presentation, and professional
+              confidence.
             </p>
           </div>
-        </div>
-      </section>
-
-      {/* FEATURED COURSES GALLERY */}
-      <section className="mt-10 md:mt-16">
-        <h2 className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-center mb-8 md:mb-10 bg-gradient-to-r from-[#ff007b] via-[#ff8a00] to-[#ff007b] bg-clip-text text-transparent">
-          Featured Courses & Programs
-        </h2>
-        <p className="text-gray-600 text-base md:text-lg max-w-3xl mx-auto mb-8 md:mb-10">
-          Learn in-demand skills with job-focused programs in data, development, and digital marketing.
-        </p>
-
-        <div className="grid gap-6 md:gap-8 lg:gap-10 md:grid-cols-2">
-          <img
-            src={powerBi}
-            alt="Master Power BI - Mindrotech Power BI Courses"
-            className="w-full rounded-3xl shadow-2xl hover:shadow-[0_10px_40px_rgba(0,0,0,0.4)] hover:-translate-y-1 transition-all duration-300"
-          />
-          <img
-            src={digitalMarketing}
-            alt="Digital Marketing Courses - Mindrotech"
-            className="w-full rounded-3xl shadow-2xl hover:shadow-[0_10px_40px_rgba(0,0,0,0.4)] hover:-translate-y-1 transition-all duration-300"
-          />
-          <img
-            src={python}
-            alt="Master Python for Data Science - Mindrotech"
-            className="w-full rounded-3xl shadow-2xl hover:shadow-[0_10px_40px_rgba(0,0,0,0.4)] hover:-translate-y-1 transition-all duration-300"
-          />
-          <img
-            src={dataAnalyst}
-            alt="Master Data Analyst - Mindrotech"
-            className="w-full rounded-3xl shadow-2xl hover:shadow-[0_10px_40px_rgba(0,0,0,0.4)] hover:-translate-y-1 transition-all duration-300"
-          />
-          <img
-            src={reactCourse}
-            alt="Learn React Development - Mindrotech"
-            className="w-full rounded-3xl shadow-2xl hover:shadow-[0_10px_40px_rgba(0,0,0,0.4)] hover:-translate-y-1 transition-all duration-300"
-          />
-          <img
-            src={seoWeb}
-            alt="Website Design & SEO Services - Mindrotech"
-            className="w-full rounded-3xl shadow-2xl hover:shadow-[0_10px_40px_rgba(0,0,0,0.4)] hover:-translate-y-1 transition-all duration-300"
-          />
-          <img
-            src={servicesBanner}
-            alt="Mindrotech Digital Growth Services"
-            className="w-full rounded-3xl shadow-2xl hover:shadow-[0_10px_40px_rgba(0,0,0,0.4)] hover:-translate-y-1 transition-all duration-300 md:col-span-2"
-          />
         </div>
       </section>
     </div>

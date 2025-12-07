@@ -4,6 +4,7 @@ import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Services from "./pages/Services";
+import Courses from "./pages/Courses";   // ← add this
 import Contact from "./pages/Contact";
 
 function App() {
@@ -38,6 +39,10 @@ function App() {
 
         <section id="services">
           <Services />
+        </section>
+
+        <section id="courses">
+          <Courses />
         </section>
 
         <section id="contact">

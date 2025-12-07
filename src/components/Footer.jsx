@@ -14,9 +14,7 @@ export default function Footer() {
         </div>
 
         <div className="text-xs text-gray-500 flex flex-wrap justify-center items-center gap-1">
-          <span>Home</span><span>|</span><span>About Us</span><span>|</span>
-          <span>Services</span><span>|</span><span>Courses</span><span>|</span>
-          <span>Blog</span><span>|</span><span>Contact Us</span>
+          <span>developed by Pulkit Dubey</span>
         </div>
       </div>
     </footer>
