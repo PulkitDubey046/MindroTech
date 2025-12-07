@@ -8,32 +8,35 @@ export default function Header({ navigate }) {
 
   // Scroll effects + PERFECT section detection
   useEffect(() => {
-    const handleScroll = () => {
-      // Header color change
-      setScrolled(window.scrollY > 50)
-      
-      // Auto-detect active section
-      const sections = ['home', 'about', 'services', 'courses', 'contact'];
-      const scrollPosition = window.scrollY + 72 // header height
+  const handleScroll = () => {
+    setScrolled(window.scrollY > 50);
 
-      sections.forEach(section => {
-        const element = document.getElementById(section)
-        if (element) {
-          const offsetTop = element.offsetTop
-          const offsetHeight = element.offsetHeight
-          const offsetBottom = offsetTop + offsetHeight
-          
-          if (scrollPosition >= offsetTop && scrollPosition < offsetBottom) {
-            setActiveSection(section)
-          }
+    const sections = ["home", "about", "services", "courses", "contact"];
+    const headerOffset = 72;
+    const viewportCenter = window.scrollY + headerOffset + 1; // slight offset
+
+    let closestSection = "home";
+    let minDistance = Infinity;
+
+    sections.forEach((section) => {
+      const element = document.getElementById(section);
+      if (element) {
+        const offsetTop = element.offsetTop;
+        const distance = Math.abs(viewportCenter - offsetTop);
+        if (distance < minDistance) {
+          minDistance = distance;
+          closestSection = section;
         }
-      })
-    }
+      }
+    });
 
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    handleScroll() // initial
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+    setActiveSection(closestSection);
+  };
+
+  window.addEventListener("scroll", handleScroll, { passive: true });
+  handleScroll();
+  return () => window.removeEventListener("scroll", handleScroll);
+}, []);
 
   // Click helper: scroll + set active immediately
   function handleNav(section) {
