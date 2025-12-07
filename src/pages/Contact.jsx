@@ -57,9 +57,8 @@ export default function Contact() {
             info@mindrotech.com
           </a>
         </p>
-        <p className="text-lg md:text-xl text-gray-600">📍 Location: Noida Sector 1, India</p>
-        <p className="text-lg md:text-xl text-gray-600">A-103 block near to big bazar</p>
-        <p className="text-lg md:text-xl text-gray-600">Pin-201301</p>
+        <p className="text-lg md:text-xl text-gray-600">📍 Location: A-103 block Noida Sector 63 </p>
+        <p className="text-lg md:text-xl text-gray-600">Pin Code- 201301, India</p>
       </div>
 
       <form className="bg-white p-8 md:p-12 lg:p-14 rounded-3xl shadow-[0_4px_15px_rgba(0,0,0,0.1)] max-w-2xl mx-auto text-left" onSubmit={handleSubmit}>
