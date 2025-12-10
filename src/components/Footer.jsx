@@ -2,7 +2,7 @@ export default function Footer() {
   return (
     <footer className="mt-12 bg-gray-900 text-white">
       <div className="max-w-6xl mx-auto px-4 py-10 text-center space-y-3">
-        <div className="text-2xl font-bold gradient-text">MindroTech © 2025</div>
+        <div className="text-2xl font-bold gradient-text">MindroTech © 2024</div>
         <div className="text-lg text-gray-300">Empowering Minds Through Technology</div>
         
         <div className="text-sm text-gray-400 flex flex-wrap justify-center items-center gap-2">
