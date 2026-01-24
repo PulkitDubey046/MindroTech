@@ -4,8 +4,9 @@ import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Services from "./pages/Services";
-import Courses from "./pages/Courses";   // ← add this
+import Courses from "./pages/Courses";   
 import Contact from "./pages/Contact";
+import FloatingAction from "./components/FloatingAction";
 
 function App() {
   // Smooth scrolling handler with header offset
@@ -27,7 +28,7 @@ function App() {
     <div className="min-h-screen bg-gray-50 text-gray-800 font-sans">
       <Header navigate={navigate} />
 
-      {/* All sections on a single page */}
+      <FloatingAction />
       <div className="pt-20 px-4 md:px-8 max-w-7xl mx-auto">
         <section id="home">
           <Home onNavigate={navigate} />
